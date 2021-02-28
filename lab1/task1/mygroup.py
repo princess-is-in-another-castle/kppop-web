@@ -1,4 +1,4 @@
-from lab1.generate_list_of_students import *
+from lab1.task1.generate_list_of_students import *
 
 
 def get_and_print_above_average_students(grade_average, students):
