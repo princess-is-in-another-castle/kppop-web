@@ -23,6 +23,7 @@ def get_and_print_above_average_students(grade_average, students):
         print("Упс, все глупые")
 
 
+# main program starts here
 grade_average = float(input("Введите средний балл(от 2.0 до 5.0): "))
 
 groupmates = int(input("Введите количество студентов для генерации списка: "))
