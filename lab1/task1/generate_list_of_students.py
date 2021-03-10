@@ -28,14 +28,11 @@ def generate_list(number_of_students):
 
     generated_list = []
     for i in range(number_of_students):
-        # типо рандомного выбора да или нет, добавить в список мужчину или женщину
-        if random.randint(0, 1) == 1:
+        # рандомный выбор добавления в список мужчины или женщины.
+        if bool(random.randint(0, 1)):
             generated_list.append({
                 "name": random.choice(male_name),
                 "surname": random.choice(male_surname),
-                # Мне показалось странным, что функция для разных людей может вернуть список ["ЭЭиС", "Web", "История"]
-                # и ["История", "ЭЭиС", "Web"]. Они же одинаковые, но то, что они в разном порядке, вводит в
-                # заблуждение. Поэтому я сверху навесил функцию sorted(), чтобы всё шло по порядку.
                 "exams": sorted(random.sample(population=exams, k=3)),
                 "marks": [random.randint(3, 5), random.randint(3, 5), random.randint(3, 5)]})
         else:
