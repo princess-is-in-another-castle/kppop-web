@@ -20,15 +20,14 @@ def get_and_print_above_average_students(grade_average, students):
                 print(student["name"].ljust(15), student["surname"].ljust(15), str(student["exams"]).ljust(40),
                       str(student["marks"]).ljust(20))
     else:
-        print("Упс, все глупые")
+        print("Таких студентов нету.")
 
 
 # main program starts here
 grade_average = float(input("Введите средний балл(от 2.0 до 5.0): "))
-
 groupmates = int(input("Введите количество студентов для генерации списка: "))
 if groupmates <= 0:
-    print("\nЯ, по-твоему, шутка? тогда я сам создам список на 404 человека\n")
+    print("\nСтудентов не может не быть, поэтому пусть будет 404 человека\n")
     groupmates = generate_list(404)
 else:
     groupmates = generate_list(groupmates)
