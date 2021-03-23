@@ -20,7 +20,7 @@ def get_and_print_above_average_students(grade_average, students):
                 print(student["name"].ljust(15), student["surname"].ljust(15), str(student["exams"]).ljust(40),
                       str(student["marks"]).ljust(20))
     else:
-        print("Таких студентов нету.")
+        print("Упс, все глупые")
 
 
 # main program starts here
