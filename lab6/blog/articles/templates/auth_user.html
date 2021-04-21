@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Создать пользователя</title>
+        <link rel="stylesheet" href="{{STATIC_URL}}/static/css/auth_user.css" />
+    </head>
+    <body>
+        {% load static %}
+        <div class="header">
+            <img src="{{STATIC_URL}}/static/img/logo.png"/>
+        </div>
+        <div class="authentication">
+            <h1>Авторизация</h1>
+                <form method="POST">{%csrf_token%}
+
+                    <p>
+                    <input name="login" type="text" placeholder="Введите логин" id="login" required>
+                    </p>
+                    <p>
+                    <input name="psw" type="password" placeholder="Введите пароль" id="psw" required>
+                    </p>
+
+                    <input type="submit" value="Испытать удачу">
+                </form>
+            {{form.errors}}
+            {{form.success}}
+        </div>
+    </body>
+</html>
