@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>Архив статей</title>
+    <link rel="stylesheet" href="{{ STATIC_URL }}static/css/article.css"/>
+</head>
+<body>
+{% load static %}
+<div class="header">
+    <img src="{{ STATIC_URL }}static/img/logo.png"/>
+</div>
+<h3 class="reg"><a href="/register">Регистрация</a></h3>
+<div class="archive">
+    {% for post in posts %}
+        <button class="fold-button">Свернуть</button>
+        <h2 class="post-title"><a href="{% url 'get_article' post.id %}">{{ post.title }}</a></h2>
+        <div class="one-post">
+            <div class="article-info">
+                <div class="article-author">{{ post.author.username }}</div>
+                <div class="article-created-date">{{ post.created_date }}</div>
+            </div>
+            <p class="article-text">{{ post.get_excerpt }}</p>
+        </div>
+    {% endfor %}
+</div>
+<script src="{{ STATIC_URL }}static/js/helloworld.js"></script>
+<script src="{{ STATIC_URL }}static/js/fold-post.js"></script>
+</body>
+</html>
