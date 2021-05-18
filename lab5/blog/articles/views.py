@@ -24,11 +24,11 @@ def create_post(request):
             form = {
                 'text': request.POST["text"], 'title': request.POST["title"]
             }
-            if not is_title_unique(form["title"]):
+            if is_title_unique(form["title"]):
                 form['errors'] = u"Название статьи не уникально"
                 return render(request, 'create_post.html', {'form': form})
             # в словаре form будет храниться информация, введенная пользователем
-            if form["text"] and form["title"] and is_title_unique(form["title"]):
+            if form["text"] and form["title"]:
                 # если поля заполнены без ошибок
                 Article.objects.create(text=form["text"], title=form["title"], author=request.user)
                 return redirect("archive")
@@ -49,4 +49,5 @@ def is_title_unique(title):
     posts = Article.objects.all()
     for post in posts:
         if title == post.title:
-            return False
+            return True
+    return False
