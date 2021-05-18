@@ -68,6 +68,8 @@ def create_user(request):
         # в словаре form будет храниться информация, введенная пользователем
         if form["login"] and form["psw"]:
             User.objects.create_user(username=form["login"], password=form["psw"])
+            form['errors'] = u"Регистрация прошла успешно"
+            return render(request, 'create_user.html', {'form': form})
             # если поля заполнены без ошибок
         else:
             # если введенные данные некорректны
